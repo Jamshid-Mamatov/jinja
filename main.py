@@ -3,13 +3,14 @@ from jinja2 import Template
 app=Flask(__name__)
 
 
-
+@app.route("/home")
 @app.route("/")
 def home():
     title="home page"
     content="home"
+    data={"username":"Jamshid","age":19}
     
-    return render_template("home.html",title=title,content=content)
+    return render_template("home.html",title=title,content=content,data=data)
 
 
 @app.route("/product")
