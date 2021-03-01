@@ -6,11 +6,18 @@ html_home="<h1>HTML HOME</h1>"
 
 @app.route("/")
 def home():
-    return html_home
+    link="""
+    <a href='/product'>product</a>
+    <a href='/about'>about</a>
+    <a href='/help'>help</a>
+    <a href='/contact'>contact</a>
+    """
+
+    return link
 
 @app.route("/product")
 def product():
-    return html_home
+    return "salom"
 
 @app.route("/help")
 def help():
