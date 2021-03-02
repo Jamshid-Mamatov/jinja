@@ -1,6 +1,8 @@
 from flask import Flask,render_template
 from jinja2 import Template
 import json
+
+
 app=Flask(__name__)
 
 
@@ -12,11 +14,19 @@ country_data=json.loads(open("country.json").read())
 def home():
     title="home page"
     content="home"
+    return render_template("home.html",content=content,title=title)
+
+
+@app.route("/country")
+def country():
+    title="country page"
+    content="flags"
     
     img_url=country_data[:5]
     
     
-    return render_template("home.html",title=title,content=content,img_url=img_url)
+    return render_template("country.html",title=title,content=content,img_url=img_url)
+
 
 
 @app.route("/product")

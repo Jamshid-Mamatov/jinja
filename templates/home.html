@@ -1,16 +1,11 @@
-<head>
-    <title>{{title}}</title>
-</head>
-<body>
-<h1>{{content}}</h1>
-<a href='/'>home</a>
-<a href='/product'>product</a>
-<a href='/about'>about</a>   
-<a href='/help'>help</a>
-<a href='/contact'>contact</a> 
-{% for url in img_url %}
-    <p> <img src="static/flags/{{url.abbreviation.lower()}}.png" >   </p> 
-{% endfor %}
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block body %}
+
+{{content}}
+
+{% endblock %}
