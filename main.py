@@ -1,6 +1,10 @@
 from flask import Flask,render_template
 from jinja2 import Template
+import json
 app=Flask(__name__)
+
+
+country_data=json.loads(open("country.json").read())
 
 
 @app.route("/home")
@@ -8,9 +12,11 @@ app=Flask(__name__)
 def home():
     title="home page"
     content="home"
-    data={"username":"Jamshid","age":19}
+    abbrev=country_data[0]['abbreviation']
+    img_url=f"{abbrev.lower()}.png"
+    # print(img_url)
     
-    return render_template("home.html",title=title,content=content,data=data)
+    return render_template("home.html",title=title,content=content,img_url=img_url)
 
 
 @app.route("/product")
