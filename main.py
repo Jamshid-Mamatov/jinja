@@ -12,9 +12,9 @@ country_data=json.loads(open("country.json").read())
 def home():
     title="home page"
     content="home"
-    abbrev=country_data[0]['abbreviation']
-    img_url=f"{abbrev.lower()}.png"
-    # print(img_url)
+    
+    img_url=country_data[:5]
+    
     
     return render_template("home.html",title=title,content=content,img_url=img_url)
 
